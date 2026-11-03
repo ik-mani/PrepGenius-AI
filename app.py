@@ -37,14 +37,14 @@ def prompt():
 
 if st.button("Generate"):
     if not api_key:
-        st.error("API key missing. Add GROQ_API_KEY to .env")
+        st.error("API key missing. Add GROQ_API_KEY to Streamlit Secrets")
     elif not topic:
         st.warning("Enter a topic first.")
     else:
         with st.spinner("Thinking..."):
             try:
                 response = client.chat.completions.create(
-                    model="llama-3.3-70b-versatile",
+                    model="openai/gpt-oss-120b",
                     messages=[
                         {
                             "role": "user",
